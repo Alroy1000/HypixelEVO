@@ -1,0 +1,276 @@
+* {
+    box-sizing: border-box;
+}
+
+#content::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#content {
+    margin: 20px;
+    padding: 20px;
+    background: rgba(50, 50, 50, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+}
+
+#left {
+    
+    padding: 20px;
+    width: 20%;
+    float: left;
+    
+}
+
+#right {
+    
+    padding: 20px;
+    width: 80%;
+    float: left;
+}
+
+#left img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+    align-self: center;
+}
+body{
+    background-image: url(bg.jpeg);
+    font-size: 25px;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #fff;
+        text-shadow:
+            0 0 5px #12eb0e,
+            0 0 10px #12eb0e,
+            0 0 20px #12eb0e,
+            0 0 40px #12eb0e,
+            0 0 80px #12eb0e;
+}
+#searchBar {
+    margin: 20px;
+    width: 80%;
+    padding: 10px;
+    background-color: #efefef;
+    opacity: 50%;
+}
+
+
+.main_tab_container {
+    margin-bottom: 25px;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+    line-height: 1.6;
+    float: left;
+    
+    height: calc(100%-25px);
+    width: 100%;
+}
+
+.tabcontainer {
+   width: 100%;
+    margin: 50px auto;
+    text-align: center;
+    
+}
+
+.tab_trigger ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+}
+
+.tab_trigger ul li {
+    float: left;
+    width: calc(100%/3);
+}
+
+.tab_trigger ul li label {
+    position: relative;
+    display: block;
+    padding: 8px 15px;
+    cursor: pointer;
+    min-width: 150px;
+    font-weight: 700;
+    border-radius: 8px 8px 0 0;
+    font-family: ysgarth;
+}
+
+.tab_container_wrapp input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    z-index: -100;
+    top: -1000px;
+    display: none;
+}
+
+.tab_container_wrapp input:checked+.tab_content_box {
+    display: grid;
+    place-items: center;
+    width: 100%;
+
+
+
+}
+
+.hover {
+    background: #3F5EFB;
+        background: linear-gradient(153deg, rgba(63, 94, 251, 1) 0%, rgba(27, 51, 11, 1) 38%, rgba(168, 54, 168, 1) 65%, rgba(75, 7, 110, 1) 100%);
+        opacity: 0.8;
+}
+
+.active {
+    background: #3F5EFB;
+        background: linear-gradient(153deg, rgba(63, 94, 251, 1) 0%, rgba(27, 51, 11, 1) 38%, rgba(168, 54, 168, 1) 65%, rgba(75, 7, 110, 1) 100%);
+}
+
+.tab_content_box {
+
+    padding: 20px;
+    display: none;
+    margin-bottom: 25px;
+}
+
+.tab_content_box h2 {
+    margin: 0 0 20px;
+}
+
+
+
+
+/*sackitem display*/
+
+#sacksContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    font-size: clamp(12px, 2vw, 16px);
+}
+
+/* Einzelne Kachel: Icon links, Text rechts, zentriert */
+.dis_Item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    border: 2px solid #d1d1d1;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #fff;
+    min-height: 120px;
+    margin: 0; /* Abstand übernimmt der Grid-Gap */
+}
+
+.Itemicon {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.item-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 4px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.Itemname,
+.Itemamount {
+    margin: 0;
+    text-align: center;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: clamp(14px, 3vw, 18px);
+}
+
+/* Glint-Effekt für enchanted Icon-Wrapper */
+.Itemicon-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    overflow: hidden;
+    flex: 0 0 100px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-right: 12px;
+    box-sizing: border-box;
+}
+
+.Itemicon-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.Itemicon-wrapper.enchanted::after {
+    content: "";
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(45deg, rgba(125,0,255,0.0) 0%, rgba(155,30,255,0.35) 40%, rgba(255,255,255,0.4) 50%, rgba(155,30,255,0.35) 60%, rgba(125,0,255,0.0) 100%);
+    transform: translateX(-100%) rotate(25deg);
+    animation: glint 2.5s linear infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Verhindert, dass Text im Itemcontent sich mit dem glint überschneidet */
+.dis_Item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.item-content {
+    flex: 1 1 auto;
+    min-width: 0;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+@keyframes glint {
+    0% { transform: translateX(-100%) rotate(25deg); }
+    100% { transform: translateX(100%) rotate(25deg); }
+}
+
+/* Optional: bei sehr kleinen Bildschirmen 2-spaltig verhindern */
+@media (max-width: 500px) {
+    #sacksContainer {
+        grid-template-columns: 1fr;
+    }
+}

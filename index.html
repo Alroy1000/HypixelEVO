@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="js/domslider.js"></script>
+		<script type="module" src="js/sacksreader.js"></script>
+		<title>Hypixel Profile EVO</title>
+	</head>
+
+	<body>
+		<h1>Hypixel Profile Evaluation</h1>
+		<div id="mainNav">
+			<input type="text" id="searchBar" placeholder="Search..." />
+		</div>
+		<div id="content">
+			<div id="left">
+				<img
+					src="https://minotar.net/body/DQ_1/200.png"
+					alt="Minecraft Charakter"
+				/>
+				<br />
+				<h2>DQ_1</h2>
+				<p><strong>Level:</strong> 100</p>
+				<p><strong>Rank:</strong> VIP</p>
+				<p><strong>Guild:</strong> Knights of the Round Table</p>
+				<p><strong>Last Online:</strong> 2 hours ago</p>
+			</div>
+			<div id="right">
+				<div class="main_tab_container">
+					<div class="tabcontainer">
+						<div class="tab_trigger">
+							<ul>
+								<li>
+									<label
+										for="mtab1"
+										id="m_tab1"
+										onmouseover="mouseOver(this)"
+										onmouseout="mouseOut(this)"
+										onclick="set_active(this)"
+										class="active tabl"
+										>Dashbord</label
+									>
+								</li>
+								<li>
+									<label
+										for="mtab2"
+										id="m_tab2"
+										onmouseover="mouseOver(this)"
+										onmouseout="mouseOut(this)"
+										onclick="set_active(this)"
+										class="tabl"
+										>Inventory</label
+									>
+								</li>
+								<li>
+									<label
+										for="mtab4"
+										id="m_tab4"
+										onmouseover="mouseOver(this)"
+										onmouseout="mouseOut(this)"
+										onclick="set_active(this)"
+										class="tabl"
+										>Collection Targeting</label
+									>
+								</li>
+							</ul>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="tab_container_wrapp">
+						<input type="radio" id="mtab1" name="s_tab" checked />
+						<div class="tab_content_box">
+							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus
+							quas ipsum veniam soluta necessitatibus, voluptatem doloribus
+							veritatis. Velit quidem explicabo provident magni veritatis iure,
+							tempore, veniam vel quo laboriosam aut? Lorem ipsum dolor sit
+							amet, consectetur adipisicing elit. Non error, animi consectetur
+							labore, amet ea corporis culpa possimus adipisci reiciendis ab
+							facilis eos iure sapiente nostrum numquam? Ullam, nisi autem?
+						</div>
+						<input type="radio" id="mtab2" name="s_tab" />
+						<div class="tab_content_box">
+							<div class="main_tab_container">
+								<div class="tabcontainer">
+									<div class="tab_trigger">
+										<ul>
+											<li>
+												<label
+													for="itab1"
+													id="i_tab1"
+													onmouseover="mouseOver(this)"
+													onmouseout="mouseOut(this)"
+													onclick="set_active(this)"
+													class="active tabl"
+													>Dashbord</label
+												>
+											</li>
+											<li>
+												<label
+													for="itab2"
+													id="i_tab2"
+													onmouseover="mouseOver(this)"
+													onmouseout="mouseOut(this)"
+													onclick="set_active(this)"
+													class="tabl"
+													>Sacks</label
+												>
+											</li>
+											<li>
+												<label
+													for="itab4"
+													id="i_tab4"
+													onmouseover="mouseOver(this)"
+													onmouseout="mouseOut(this)"
+													onclick="set_active(this)"
+													class="tabl"
+													>Collection Targeting</label
+												>
+											</li>
+										</ul>
+										<div class="clear"></div>
+									</div>
+								</div>
+								<div class="tab_container_wrapp">
+									<input type="radio" id="itab1" name="s_i_tab" checked />
+									<div class="tab_content_box">
+										Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+										Natus quas ipsum veniam soluta necessitatibus, voluptatem
+										doloribus veritatis. Velit quidem explicabo provident magni
+										veritatis iure, tempore, veniam vel quo laboriosam aut?
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+										Non error, animi consectetur labore, amet ea corporis culpa
+										possimus adipisci reiciendis ab facilis eos iure sapiente
+										nostrum numquam? Ullam, nisi autem?
+									</div>
+									<input type="radio" id="itab2" name="s_i_tab" />
+									<div class="tab_content_box">
+										<div id="sacksContainer"></div>
+
+										<template id="sackTemplate">
+											<div class="dis_Item">
+												<div class="Itemicon-wrapper">
+													<img class="Itemicon" src="" alt="" />
+												</div>
+												<div class="item-content">
+													<p class="Itemname"></p>
+													<p class="Itemamount"></p>
+												</div>
+											</div>
+										</template>
+									</div>
+
+									<input type="radio" id="itab4" name="s_i_tab" />
+									<div class="tab_content_box">
+										Lorem ipsum dolor sit amet consectetur adipisicing elit.
+										Quia rem, saepe deleniti laboriosam dolore quod perspiciatis
+										itaque consequatur incidunt enim. Lorem, ipsum dolor sit
+										amet consectetur adipisicing elit. Atque nemo quia tempora
+										quis voluptas veritatis laborum, odio natus dolor ipsa,
+										commodi fugit perferendis tenetur temporibus asperiores,
+										amet aut excepturi delectus?Lorem ipsum, dolor sit amet
+										consectetur adipisicing elit. Alias ipsam, provident enim
+										adipisci officia laboriosam id inventore iste. Cupiditate
+										delectus reiciendis in eaque voluptas minus ut, recusandae
+										ullam adipisci eius! Lorem ipsum dolor sit, amet consectetur
+										adipisicing elit. Facilis quisquam quam inventore excepturi
+										repellat natus laborum dicta, iste reprehenderit tempora
+										molestiae adipisci commodi nisi illum deserunt, aspernatur
+										officiis sed? Tenetur. Lorem ipsum dolor sit amet
+										consectetur adipisicing elit. Eos expedita ipsam ad hic
+										explicabo dolore, ipsum praesentium autem, iste neque
+										voluptatum rerum minus vitae ea optio, perferendis
+										accusantium consequatur nostrum?
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<input type="radio" id="mtab4" name="s_tab" />
+						<div class="tab_content_box">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia rem,
+							saepe deleniti laboriosam dolore quod perspiciatis itaque
+							consequatur incidunt enim. Lorem, ipsum dolor sit amet consectetur
+							adipisicing elit. Atque nemo quia tempora quis voluptas veritatis
+							laborum, odio natus dolor ipsa, commodi fugit perferendis tenetur
+							temporibus asperiores, amet aut excepturi delectus?Lorem ipsum,
+							dolor sit amet consectetur adipisicing elit. Alias ipsam,
+							provident enim adipisci officia laboriosam id inventore iste.
+							Cupiditate delectus reiciendis in eaque voluptas minus ut,
+							recusandae ullam adipisci eius! Lorem ipsum dolor sit, amet
+							consectetur adipisicing elit. Facilis quisquam quam inventore
+							excepturi repellat natus laborum dicta, iste reprehenderit tempora
+							molestiae adipisci commodi nisi illum deserunt, aspernatur
+							officiis sed? Tenetur. Lorem ipsum dolor sit amet consectetur
+							adipisicing elit. Eos expedita ipsam ad hic explicabo dolore,
+							ipsum praesentium autem, iste neque voluptatum rerum minus vitae
+							ea optio, perferendis accusantium consequatur nostrum?
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
