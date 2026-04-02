@@ -1,0 +1,27 @@
+# Git Ignore - HypixelProfileEvo
+
+# Große Texture-Dateien (lokal behalten, nicht zu GitHub)
+assets/textures/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (falls später verwendet)
+node_modules/
+package-lock.json
+
+# Build & Deploy
+dist/
+build/
+*.log
+
+# Backup/Temp
+*.bak
+*.tmp
+~*
