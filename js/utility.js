@@ -4,7 +4,6 @@ const idToTextureMapping = {
     "INK_SACK:3": "cocoa_beans",
     "INK_SACK:2": "green_dye",
     "HARD_STONE": "deepslate",
-    "MITHRIL_ORE": "mithril",
     "COBBLESTONE": "cobblestone",
     "WOOL": "white_wool",
     "COAL": "coal",
@@ -164,13 +163,16 @@ export function getGemstoneTexture(gemId) {
     if (typeof gemId !== 'string') return gemId;
 
     // Prüfe direktes Mapping
-    if (gemToGemstoneMapping[gemId]) {
-        return gemToGemstoneMapping[gemId];
+    const normalizedGemId = gemId.toUpperCase();
+    if (gemToGemstoneMapping[normalizedGemId]) {
+        return gemToGemstoneMapping[normalizedGemId];
     }
 
     // Einfache Transformation: GEM -> GEMSTONE
-    if (gemId.endsWith('_GEM')) {
-        return gemId.replace(/_GEM$/, '_GEMSTONE');
+    if (normalizedGemId.endsWith('_GEM')) {
+        return normalizedGemId
+            .replace(/_GEM$/, '_GEMSTONE')
+            .toLowerCase();
     }
 
     // Fallback: lowercase und _ durch - ersetzen

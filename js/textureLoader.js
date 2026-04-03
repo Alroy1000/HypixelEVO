@@ -5,7 +5,8 @@ const TEXTURE_REPOS = [
     // Korrigierter Branch und Pfad
     'https://raw.githubusercontent.com/Faithful-Pack/Default-Java/java-latest/assets/minecraft/textures/item',
     'https://raw.githubusercontent.com/Faithful-Pack/Default-Java/java-latest/assets/minecraft/textures/block',
-    'https://raw.githubusercontent.com/furfsky/Reborn/main/catharsis/item_item/assets/item_item/textures/item',
+    'https://raw.githubusercontent.com/furfsky/reborn/main/catharsis/item_item/assets/item_item/textures/item',
+    'https://raw.githubusercontent.com/furfsky/reborn/main/catharsis/item_item/assets/item_item/textures/item',
 ];
 const FALLBACK = './assets/textures/fallback.jpg';
 
@@ -71,15 +72,17 @@ export function setTextureWithFallback(iconElement, itemId, textureFileName) {
             console.debug(`Versuche Repository-Texture: ${candidate}`);
 
             try {
-                await new Promise((resolve, reject) => {
-                    iconElement.onload = () => {
-                        console.info(`Texture erfolgreich geladen: ${candidate}`);
-                        resolve();
-                    };
-                    iconElement.onerror = reject;
-                    iconElement.src = candidate;
-                });
-                return; // Erfolgreich geladen, beende
+                const response = await fetch(candidate);
+                console.log(`Fetch response für ${candidate}:`, response.status, response.ok);
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const objectURL = URL.createObjectURL(blob);
+                    iconElement.src = objectURL;
+                    console.info(`Texture erfolgreich geladen: ${candidate}`);
+                    return;
+                } else {
+                    console.debug(`Texture fetch nicht OK (${response.status}): ${candidate}`);
+                }
             } catch (error) {
                 console.debug(`Texture fehlgeschlagen: ${candidate}`, error);
                 // Nächstes Repo versuchen
