@@ -1,7 +1,6 @@
 # Git Ignore - HypixelProfileEvo
 
-# Große Texture-Dateien (lokal behalten, nicht zu GitHub)
-assets/textures/
+
 
 # IDE & Editor
 .vscode/

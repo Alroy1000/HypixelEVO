@@ -1,33 +1,8 @@
 import { getJsonData, normalizeSacks, normalizeItemName, getTextureFileName, getBaseItemId, isEnchantedItem } from './utility.js';  // Richtiges Importieren!
+import { setTextureWithFallback } from './textureLoader.js';
 
 const container = document.getElementById("sacksContainer");
 const template = document.getElementById("sackTemplate");
-
-// Texture-Konfiguration
-const BASEDIR = './assets/textures';
-const TEXTURE_PRIORITY = ['Sortex', 'FurfeSky', 'Default'];
-const FALLBACK = './assets/textures/fallback.jpg';
-
-// Funktion zum Laden von Texturen mit Priorität
-function setTextureWithFallback(iconElement, itemId) {
-    let textureIndex = 0;
-    
-    // Hole den korrekten Dateinamen für die Item-ID
-    const textureFileName = getTextureFileName(itemId);
-    
-    function tryNextTexture() {
-        if (textureIndex < TEXTURE_PRIORITY.length) {
-            const texturePath = `${BASEDIR}/${TEXTURE_PRIORITY[textureIndex]}/${textureFileName}.png`;
-            iconElement.src = texturePath;
-            textureIndex++;
-        } else {
-            iconElement.src = FALLBACK;
-        }
-    }
-    
-    tryNextTexture();
-    iconElement.onerror = tryNextTexture;
-}
 
 async function loadAndRenderSacks() {
     try {
@@ -89,7 +64,8 @@ function createSackElement(sackData) {
 
     // Textur mit Priorität laden (ENCHANTED_ Items anhand Basis-ID)
     const loadItemId = getBaseItemId(sackData.name);
-    setTextureWithFallback(icon, loadItemId);
+    const textureFileName = getTextureFileName(loadItemId);
+    setTextureWithFallback(icon, loadItemId, textureFileName);
     
     return clone;
 }
