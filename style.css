@@ -190,7 +190,6 @@ body{
     justify-content: center;
     width: 100%;
     gap: 4px;
-    background-color: #f0f0f0;
     padding: 10px;
     border-radius: 5px;
 }
@@ -254,7 +253,6 @@ body{
 .item-content {
     flex: 1 1 auto;
     min-width: 0;
-    background-color: #f0f0f0;
     padding: 10px;
     border-radius: 5px;
     position: relative;
